@@ -1,0 +1,85 @@
+.hero {
+  margin: 70px 0;
+  @include breakpoint-up(small) {
+    margin: 80px 0 0;
+  }
+  & .container {
+    flex-direction: column;
+    @include breakpoint-up(small) {
+      flex-direction: row;
+      gap: 60px;
+    }
+    & .text {
+      order: 2;
+      text-align: center;
+      position: relative;
+      @include breakpoint-up(small) {
+        order: unset;
+        text-align: left;
+        flex-basis: 50%;
+      }
+      @include breakpoint-down(small) {
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: -24px;
+          height: 109%;
+          width: 100%;
+          background-image: url(../images/bg-tablet-pattern.svg);
+          background-repeat: no-repeat;
+          z-index: -3;
+          background-size: 425px;
+          background-position: 205px 59px;
+        }
+      }
+      & h1 {
+        color: $d-blue;
+        font-size: 42px;
+        margin: 0;
+        @include breakpoint-up(small) {
+          font-size: 50px;
+          @include breakpoint-down(medium) {
+            font-size: 40px;
+          }
+        }
+      }
+      & p {
+        color: $d-g-blue;
+        line-height: 1.8;
+        font-size: 18px;
+        margin: 8px 0 35px;
+        @include breakpoint-up(small) {
+          max-width: 80%;
+          margin: 35px 0 50px;
+          @include breakpoint-down(medium) {
+            max-width: 85%;
+            margin: 25px 0 40px;
+          }
+        }
+      }
+      & button {
+        margin-bottom: 100px;
+        @include breakpoint-up(small) {
+          margin-bottom: unset;
+        }
+      }
+    }
+    & .image {
+      @include breakpoint-up(small) {
+        flex-basis: 60%;
+        @include breakpoint-down(medium) {
+          flex-basis: 50%;
+        }
+      }
+      & img {
+        @include breakpoint-up(medium) {
+          width: 580px;
+          aspect-ratio: 1;
+        }
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+  }
+}

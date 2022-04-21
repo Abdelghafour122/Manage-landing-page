@@ -1,0 +1,103 @@
+header {
+  background-image: url(../images/bg-tablet-pattern.svg);
+  background-position: -53% -12%;
+  background-size: 120%;
+  background-repeat: no-repeat;
+  @include breakpoint-up(small) {
+    background-position: 133% -88px;
+    background-size: 60%;
+    margin-bottom: 110px;
+    @include breakpoint-down(medium) {
+      background-position: 140% -50px;
+    }
+  }
+  @include breakpoint-up(medium) {
+    @include breakpoint-down(large) {
+      background-position: 129% -63px;
+      margin-bottom: 150px;
+    }
+  }
+  & nav {
+    padding: 45px 0;
+    position: relative;
+    & .logo {
+      & img {
+        height: 24px;
+        width: 146px;
+      }
+    }
+    & .ham-menu {
+      height: 25px;
+      aspect-ratio: 1;
+      z-index: 100;
+      & img {
+        cursor: pointer;
+      }
+    }
+    & .mobile-links {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100%;
+      background-image: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(0, 0, 0, 0.539)
+      );
+      z-index: 2;
+      & ul {
+        position: absolute;
+        top: 12%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 40px;
+        background-color: white;
+        width: 90%;
+        text-align: center;
+        border-radius: 5px;
+        & li {
+          z-index: 2;
+          &:not(:last-of-type) {
+            margin-bottom: 40px;
+          }
+          & a {
+            color: $d-blue;
+            font-weight: 700;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+    & .desktop-links {
+      & li {
+        & a {
+          color: $v-d-blue;
+          transition: 0.3s;
+          font-size: $reg-fs;
+          &:hover {
+            color: $d-g-blue;
+          }
+          @include breakpoint-up(small) {
+            @include breakpoint-down(medium) {
+              font-size: 15px;
+            }
+          }
+        }
+        &:not(:last-of-type) {
+          margin-right: 34px;
+          @include breakpoint-up(medium) {
+            @include breakpoint-down(large) {
+              margin-right: 25px;
+            }
+          }
+          @include breakpoint-up(small) {
+            @include breakpoint-down(medium) {
+              margin-right: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

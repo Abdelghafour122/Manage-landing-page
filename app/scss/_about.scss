@@ -1,0 +1,107 @@
+.about {
+  @include breakpoint-up(small) {
+    margin-bottom: 100px;
+  }
+  & .container {
+    flex-direction: column;
+    @include breakpoint-up(small) {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 200px;
+      @include breakpoint-down(medium) {
+        gap: 110px;
+      }
+    }
+    & .questions {
+      text-align: center;
+      @include breakpoint-up(small) {
+        flex-basis: 50%;
+        text-align: left;
+      }
+      & h2 {
+        margin: 0;
+        color: $d-blue;
+        font-size: 33px;
+      }
+      & p {
+        color: $d-g-blue;
+        line-height: 1.9;
+        @include breakpoint-up(small) {
+          max-width: 80%;
+        }
+      }
+    }
+    & .points {
+      counter-reset: section-number;
+      @include breakpoint-up(small) {
+        flex-basis: 50%;
+      }
+      & section {
+        counter-increment: section-number;
+        margin-top: 50px;
+        @include breakpoint-up(small) {
+          &:first-of-type {
+            margin-top: 0;
+          }
+        }
+        & div {
+          position: relative;
+          width: calc(100% + 24px);
+          background-color: $v-p-red;
+          padding: 9px 0;
+          border-top-left-radius: 100px;
+          border-bottom-left-radius: 100px;
+          @include breakpoint-up(small) {
+            background-color: unset;
+            width: 100%;
+            border-radius: unset;
+          }
+          & h4 {
+            margin: 0;
+            margin-left: 85px;
+            color: $v-d-blue;
+            @include breakpoint-up(small) {
+              margin: 0;
+            }
+          }
+          &::before {
+            content: "0" counter(section-number);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            height: 100%;
+            width: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 100px;
+            background-color: $b-red;
+            color: $v-p-red;
+            font-weight: bold;
+            @include breakpoint-up(small) {
+              left: -100px;
+              @include breakpoint-down(medium) {
+                left: -72px;
+                width: 60px;
+              }
+            }
+            @include breakpoint-up(medium) {
+              @include breakpoint-down(large) {
+                left: -85px;
+                width: 65px;
+              }
+            }
+          }
+        }
+        & p {
+          color: $d-g-blue;
+          line-height: 1.9;
+          @include breakpoint-up(small) {
+            line-height: 1.7;
+          }
+        }
+      }
+    }
+  }
+}

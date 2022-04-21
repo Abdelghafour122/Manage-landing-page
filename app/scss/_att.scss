@@ -1,0 +1,12 @@
+.attribution {
+  margin: 0;
+  padding: 7px;
+  text-align: center;
+  background-color: bisque;
+  & a {
+    color: royalblue;
+    font-weight: bold;
+    text-decoration: underline dotted;
+    font-size: 20px;
+  }
+}

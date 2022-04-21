@@ -1,0 +1,65 @@
+.work {
+  padding: 70px 0;
+  background-image: linear-gradient(to right, $b-red, $b-red);
+  background-size: 100%;
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(../images/bg-simplify-section-mobile.svg);
+    background-repeat: no-repeat;
+    @include breakpoint-up(small) {
+      background-image: url(../images/bg-simplify-section-desktop.svg);
+      top: -33%;
+      left: 0%;
+      height: 134%;
+      background-size: cover;
+      @include breakpoint-down(medium) {
+        top: -20%;
+        left: -11%;
+        height: 120%;
+        width: 111%;
+      }
+    }
+    @include breakpoint-up(medium) {
+      @include breakpoint-down(large) {
+        top: -35%;
+        left: 5%;
+        height: 135%;
+      }
+    }
+  }
+  & .container {
+    z-index: 3;
+    text-align: center;
+    flex-direction: column;
+    position: relative;
+    @include breakpoint-up(small) {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: unset;
+    }
+    & h1 {
+      color: $v-p-red;
+      font-size: 42px;
+      margin-top: 0;
+      @include breakpoint-up(small) {
+        max-width: 55%;
+        margin: 0;
+      }
+    }
+    & button {
+      background-color: $v-p-red;
+      color: $b-red;
+      &:hover {
+        background-color: #f98f77;
+        color: $v-p-red;
+      }
+    }
+  }
+}

@@ -1,0 +1,99 @@
+.testimonials {
+  margin: 50px 0;
+  & .container {
+    flex-direction: column;
+    overflow-x: hidden;
+    width: 100%;
+    & h1 {
+      font-size: 33px;
+      color: $d-blue;
+      margin: 0 0 110px;
+    }
+    & .desk-slider {
+      @include breakpoint-up(small) {
+        display: flex;
+        cursor: grab;
+        position: relative;
+        left: 0;
+      }
+      & section {
+        z-index: -1;
+        position: relative;
+        background-color: $v-l-gray;
+        text-align: center;
+        padding: 25px;
+        width: 500px;
+        &:not(:last-of-type) {
+          margin-right: 30px;
+        }
+      }
+      & img {
+        height: 75px;
+        position: absolute;
+        top: calc(-75px / 2);
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      & h4 {
+        color: $d-blue;
+        font-size: 19px;
+        margin: 52px 0 25px;
+      }
+      & p {
+        color: $d-g-blue;
+        line-height: 1.7;
+      }
+    }
+    & .mobile-slider {
+      transition: opacity 0.3s;
+      & section {
+        position: relative;
+        background-color: $v-l-gray;
+        text-align: center;
+        padding: 20px;
+        opacity: 1;
+        & img {
+          height: 85px;
+          position: absolute;
+          top: calc(-85px / 2);
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        & h4 {
+          color: $d-blue;
+          margin: 52px 0 25px;
+          font-size: 19px;
+        }
+        & p {
+          color: $d-g-blue;
+          line-height: 1.7;
+        }
+      }
+    }
+    & .bullets {
+      text-align: center;
+      margin: 35px 0 60px;
+      & span {
+        width: 13px;
+        height: 13px;
+        border: 2px solid $b-red;
+        border-radius: 100%;
+        display: inline-block;
+        transition: 0.4s;
+        cursor: pointer;
+        &:not(:last-of-type) {
+          margin-right: 5px;
+        }
+        &.active {
+          background-color: $b-red;
+        }
+      }
+    }
+    & button {
+      margin-bottom: 60px;
+      @include breakpoint-up(small) {
+        margin: 55px 0 110px;
+      }
+    }
+  }
+}

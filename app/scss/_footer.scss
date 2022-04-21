@@ -1,0 +1,123 @@
+footer {
+  background-color: $v-d-blue;
+  padding: 60px 0;
+  & .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 50px;
+    @include breakpoint-up(medium) {
+      @include breakpoint-down(large) {
+        grid-template-columns: repeat(3, minmax(200px, 1fr));
+        gap: 0;
+      }
+    }
+    @include breakpoint-up(large) {
+      grid-template-columns: repeat(3, minmax(300px, 1fr));
+      grid-template-rows: repeat(1, 150px);
+    }
+    & .reach {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 50px;
+      align-items: center;
+      order: 99;
+      @include breakpoint-up(small) {
+        align-items: flex-start;
+        order: unset;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between;
+      }
+      & p {
+        order: -1;
+        color: $d-g-blue;
+        margin: 0;
+        @include breakpoint-up(small) {
+          order: unset;
+        }
+      }
+    }
+    & .links {
+      display: flex;
+      align-items: flex-start;
+      & .list {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-around;
+        width: 100%;
+        & li {
+          &:not(:last-of-type) {
+            margin-bottom: 20px;
+          }
+          & a {
+            color: $v-l-gray;
+            transition: 0.2s;
+          }
+          &:hover a {
+            color: $b-red;
+          }
+        }
+      }
+    }
+    & .socials {
+      width: 100%;
+      align-items: center;
+      justify-content: space-around;
+      display: flex;
+      @include breakpoint-up(small) {
+        display: unset;
+      }
+      & svg {
+        transform: scale(1.4);
+        cursor: pointer;
+        & path {
+          transition: 0.2s;
+        }
+        &:hover {
+          & path {
+            fill: $b-red;
+          }
+        }
+        @include breakpoint-up(small) {
+          &:not(:last-of-type) {
+            margin-right: 20px;
+          }
+        }
+      }
+    }
+    & .inbox {
+      order: -1;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      @include breakpoint-up(small) {
+        height: 100%;
+        order: unset;
+        @include breakpoint-down(medium) {
+          height: 140px;
+        }
+      }
+      & form {
+        display: flex;
+        width: 100%;
+      }
+      & input {
+        flex: 1;
+        margin-right: 10px;
+        padding: 20px 14px;
+        border-radius: 1000px;
+        font-family: inherit;
+        border: none;
+      }
+      & button {
+        box-shadow: unset;
+      }
+      & p {
+        color: $d-g-blue;
+        margin: 0;
+      }
+    }
+  }
+}
